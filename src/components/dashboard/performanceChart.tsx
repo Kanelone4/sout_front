@@ -1,4 +1,109 @@
+import { Line } from 'react-chartjs-2';
+import { 
+  Chart as ChartJS, 
+  CategoryScale, 
+  LinearScale, 
+  PointElement, 
+  LineElement, 
+  Title, 
+  Tooltip, 
+  Legend 
+} from 'chart.js';
+
+ChartJS.register(
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Title,
+  Tooltip,
+  Legend
+);
+
 const PerformanceChart = () => {
+  const data = {
+    labels: ['Jan', 'Fév', 'Mar', 'Avr', 'Mai', 'Juin', 'Juil', 'Août', 'Sep', 'Oct', 'Nov', 'Déc'],
+    datasets: [
+      {
+        label: 'CA (FCFA)',
+        data: [850000, 790000, 900000, 910000, 960000, 950000, 1000000, 1100000, 1150000, 1200000, 1250000, 1300000],
+        borderColor: '#3B82F6',
+        backgroundColor: 'rgba(59, 130, 246, 0.1)',
+        tension: 0.4,
+        fill: true,
+        borderWidth: 2,
+        pointRadius: 3,
+        pointBackgroundColor: '#3B82F6'
+      },
+      {
+        label: 'Leads',
+        data: [120, 135, 150, 145, 160, 155, 170, 185, 180, 195, 210, 220],
+        borderColor: '#E5E7EB',
+        backgroundColor: 'rgba(229, 231, 235, 0.1)',
+        tension: 0.4,
+        borderWidth: 2,
+        pointRadius: 3,
+        pointBackgroundColor: '#E5E7EB'
+      },
+      {
+        label: 'Conversions',
+        data: [35, 40, 42, 45, 48, 50, 52, 55, 58, 60, 62, 65],
+        borderColor: '#9CA3AF',
+        backgroundColor: 'rgba(156, 163, 175, 0.1)',
+        tension: 0.4,
+        borderWidth: 2,
+        pointRadius: 3,
+        pointBackgroundColor: '#9CA3AF'
+      }
+    ]
+  };
+
+  const options = {
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: {
+      legend: {
+        display: false
+      },
+      tooltip: {
+        mode: 'index' as const,
+        intersect: false,
+        callbacks: {
+          label: function(context: any) {
+            let label = context.dataset.label || '';
+            if (label) {
+              label += ': ';
+            }
+            if (context.dataset.label === 'CA (FCFA)') {
+              label += context.raw.toLocaleString() + ' FCFA';
+            } else {
+              label += context.raw;
+            }
+            return label;
+          }
+        }
+      }
+    },
+    scales: {
+      y: {
+        beginAtZero: true,
+        ticks: {
+          callback: function(value: number) {
+            if (value >= 1000) {
+              return (value / 1000).toFixed(0) + 'k';
+            }
+            return value;
+          }
+        }
+      }
+    },
+    interaction: {
+      mode: 'nearest' as const,
+      axis: 'x' as const,
+      intersect: false
+    }
+  };
+
   return (
     <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-200">
       <div className="flex items-center justify-between mb-6">
@@ -19,19 +124,11 @@ const PerformanceChart = () => {
         </div>
       </div>
 
-      <div className="h-64 flex items-end justify-center">
-        <div className="text-gray-500 text-center">
-          <div className="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-2">
-            <TrendingUp className="w-8 h-8 text-gray-400" />
-          </div>
-          <p className="text-sm">Graphique de performance</p>
-          <p className="text-xs text-gray-400">Les données seront affichées ici</p>
-        </div>
+      <div className="h-64">
+        <Line data={data} options={options} />
       </div>
     </div>
-  )
-}
+  );
+};
 
-import { TrendingUp } from "lucide-react"
-
-export default PerformanceChart
+export default PerformanceChart;
