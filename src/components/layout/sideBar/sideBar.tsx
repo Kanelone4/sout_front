@@ -13,7 +13,14 @@ import {
   ChevronLeft,
 } from "lucide-react"
 
+import { Link } from "react-router-dom"
+
 const Sidebar = () => {
+  const currentPath = window.location.pathname
+  const isActive = (path: string) => currentPath === path
+  const activeClass = "bg-blue-50 text-blue-700"
+  const inactiveClass = "text-gray-700 hover:bg-gray-100 hover:text-gray-900" 
+
   return (
     <div className="flex w-72 flex-shrink-0 flex-col bg-white border-r border-gray-200">
       {/* Header */}
@@ -32,16 +39,30 @@ const Sidebar = () => {
       {/* Navigation */}
       <div className="flex-1 overflow-y-auto py-4">
         <nav className="px-3 space-y-1">
-          <SidebarLink icon={<BarChart3 className="w-5 h-5" />} active>
+          <SidebarLink icon={<BarChart3 className="w-5 h-5" />} to="/dashboard" active={isActive("/dashboard")}>
             Tableau de bord
           </SidebarLink>
-          <SidebarLink icon={<Users className="w-5 h-5" />}>Commerciaux</SidebarLink>
-          <SidebarLink icon={<Briefcase className="w-5 h-5" />}>Opportunités</SidebarLink>
-          <SidebarLink icon={<TrendingUp className="w-5 h-5" />}>Performance</SidebarLink>
-          <SidebarLink icon={<Calendar className="w-5 h-5" />}>Activités</SidebarLink>
-          <SidebarLink icon={<Target className="w-5 h-5" />}>Objectifs</SidebarLink>
-          <SidebarLink icon={<FileText className="w-5 h-5" />}>Rapports</SidebarLink>
-          <SidebarLink icon={<Settings className="w-5 h-5" />}>Paramètres</SidebarLink>
+          <SidebarLink icon={<Users className="w-5 h-5" />} to="/sales" active={isActive("/sales")}>
+            Commerciaux
+          </SidebarLink>
+          <SidebarLink icon={<Briefcase className="w-5 h-5" />} to="/opportunities" active={isActive("/opportunities")}>
+            Opportunités
+          </SidebarLink>
+          <SidebarLink icon={<TrendingUp className="w-5 h-5" />} to="/performance" active={isActive("/performance")}>
+            Performance
+          </SidebarLink>
+          <SidebarLink icon={<Calendar className="w-5 h-5" />} to="/activities" active={isActive("/activities")}>
+            Activités
+          </SidebarLink>
+          <SidebarLink icon={<Target className="w-5 h-5" />} to="/goals" active={isActive("/goals")}>
+            Objectifs
+          </SidebarLink>
+          <SidebarLink icon={<FileText className="w-5 h-5" />} to="/reports" active={isActive("/reports")}>
+            Rapports
+          </SidebarLink>
+          <SidebarLink icon={<Settings className="w-5 h-5" />} to="/settings" active={isActive("/settings")}>
+            Paramètres
+          </SidebarLink>
         </nav>
       </div>
 
@@ -68,24 +89,27 @@ const Sidebar = () => {
   )
 }
 
+
 const SidebarLink = ({
   icon,
   children,
   active = false,
+  to = "#",
 }: {
   icon: React.ReactNode
   children: React.ReactNode
   active?: boolean
+  to?: string
 }) => (
-  <a
-    href="#"
+  <Link
+    to={to}
     className={`flex items-center px-3 py-2.5 text-sm font-medium rounded-lg transition-colors ${
       active ? "bg-blue-50 text-blue-700" : "text-gray-700 hover:bg-gray-100 hover:text-gray-900"
     }`}
   >
     <span className={`mr-3 ${active ? "text-blue-600" : "text-gray-400"}`}>{icon}</span>
     <span>{children}</span>
-  </a>
+  </Link>
 )
 
 export default Sidebar

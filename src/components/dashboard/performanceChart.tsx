@@ -88,11 +88,11 @@ const PerformanceChart = () => {
       y: {
         beginAtZero: true,
         ticks: {
-          callback: function(value: number) {
-            if (value >= 1000) {
-              return (value / 1000).toFixed(0) + 'k';
+          callback: function(tickValue: string | number) {
+            if (typeof tickValue === 'number' && tickValue >= 1000) {
+              return (tickValue / 1000).toFixed(0) + 'k';
             }
-            return value;
+            return tickValue;
           }
         }
       }
