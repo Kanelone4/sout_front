@@ -3,16 +3,17 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-d
 import Dashboard from '../src/pages/Dashboard';
 import Settings from '../src/pages/settings';
 import NotFound from '../src/pages/NotFoud';
+import Login from './pages/Login';
+import Register from './pages/Register';
 
 
 function App() {
   return (
     <Router>
       <Routes>
-          {/* Route par défaut - redirige vers dashboard */}
-          <Route path="/" element={<Navigate to="/dashboard" replace />} />
-          
           {/* Routes principales */}
+          <Route path="/" element={<Login />} />
+          <Route path="/register" element={<Register />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/settings" element={<Settings />} />
           
