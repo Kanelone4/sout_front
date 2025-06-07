@@ -18,6 +18,22 @@ const PipelineTable = () => {
       evolution: "+12%",
       color: "bg-purple-500",
     },
+    {
+      stage: "Qualification",
+      deals: 107,
+      value: "1,550,000 FCFA",
+      conversion: "67%",
+      evolution: "+33%",
+      color: "bg-green-500",
+    },
+    {
+      stage: "Proposition",
+      deals: 56,
+      value: "1,420,000 FCFA",
+      conversion: "32%",
+      evolution: "+22%",
+      color: "bg-blue-500",
+    },
   ]
 
   return (
