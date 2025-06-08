@@ -28,9 +28,17 @@ const TopPerformers = () => {
       name: "Luc Girard",
       amount: "248,600 FCFA",
       deals: "18 deals",
-      change: "+9%",
+      change: "+21%",
       avatar:
         "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
+    },
+    {
+      name: "Steven LaCourbe",
+      amount: "228,7O0 FCFA",
+      deals: "22 deals",
+      change: "+45%",
+      avatar:
+        "https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
     },
   ]
 
