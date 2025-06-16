@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Search, Bell, Settings, User } from "lucide-react";
+import {  Bell, Settings, User } from "lucide-react";
 
 const Header = () => {
   const [showNotifications, setShowNotifications] = useState(false);
@@ -22,14 +22,7 @@ const Header = () => {
           {/* Search bar moved to the right end */}
           <div className="flex-1 flex justify-end">
             <div className="relative">
-              <div className="flex items-center bg-gray-100 rounded-lg px-3 py-2 w-64">
-                <Search className="w-4 h-4 text-gray-500 mr-2" />
-                <input
-                  type="text"
-                  placeholder="Rechercher..."
-                  className="bg-transparent border-0 focus:outline-none text-gray-700 placeholder-gray-500 w-full text-sm"
-                />
-              </div>
+              
             </div>
           </div>
 
