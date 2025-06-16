@@ -4,8 +4,12 @@ import SalesByTeamChart from "./salesByTeamChart"
 import TopPerformers from "./topPerformance"
 import PipelineTable from "./pipelineTable"
 import { Download, Calendar } from "lucide-react"
+import React from "react"
+
+
 
 const Dashboard = () => {
+
   return (
     <div className="p-6">
       {/* Header */}

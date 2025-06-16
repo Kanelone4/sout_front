@@ -21,55 +21,72 @@ export const CatalogueProduit = () => {
   const [selectedCategory, setSelectedCategory] = useState<"all" | "physique" | "numérique">("all");
 
   const products: Product[] = [
-  {
-    id: "1",
-    name: "Ordinateur Portable Elite",
-    category: "physique",
-    price: 1299.99,
-    stock: 15,
-    image: "https://images.unsplash.com/photo-1611186871348-b1ce696e52c9?w=200",
-  },
-  {
-    id: "2",
-    name: "Mobile Money",
-    category: "numérique",
-    price: 499.99,
-    stock: 0,
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=200",
-  },
-  {
-    id: "3",
-    name: "Smartphone Premium",
-    category: "physique",
-    price: 899.99,
-    stock: 8,
-    image: "https://images.unsplash.com/photo-1601784551446-20c9e07cdbdb?w=200",
-  },
-  {
-    id: "4",
-    name: "Logiciel Sécurité",
-    category: "numérique",
-    price: 199.99,
-    stock: 50,
-    image: "https://images.unsplash.com/photo-1555774698-0b77e0d5fac6?w=200",
-  },
-  {
-    id: "5",
-    name: "Écran 4K 27\"",
-    category: "physique",
-    price: 349.99,
-    stock: 12,
-    image: "https://images.unsplash.com/photo-1547036967-23d11aacaee0?w=200",
-  },
-  {
-    id: "6",
-    name: "Formation en Ligne",
-    category: "numérique",
-    price: 149.99,
-    stock: 100,
-    image: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=200",
-  },
-];
+    {
+      id: "1",
+      name: "Pocket WiFi 4G Celtiis",
+      category: "physique",
+      price: 14000,
+      stock: 15,
+      image: "https://i.imgur.com/JqYeZZn.jpg",
+    },
+    {
+      id: "2",
+      name: "Kit Fibre Optique Celtiis",
+      category: "physique",
+      price: 25000,
+      stock: 8,
+      image: "https://i.imgur.com/mX7TzGD.jpg",
+    },
+    {
+      id: "3",
+      name: "Carte SIM Celtiis",
+      category: "physique",
+      price: 100,
+      stock: 120,
+      image: "https://i.imgur.com/8z3qVQk.jpg",
+    },
+
+    {
+      id: "6",
+      name: "Mobile Money Celtiis",
+      category: "numérique",
+      price: 0,
+      stock: 999,
+      image: "https://i.imgur.com/5vZwK2G.jpg",
+    },
+    {
+      id: "7",
+      name: "Recharge Électronique",
+      category: "numérique",
+      price: 0,
+      stock: 999,
+      image: "https://i.imgur.com/9QZ6xWv.jpg",
+    },
+    {
+      id: "8",
+      name: "Abonnement Fibre 100Mbps",
+      category: "numérique",
+      price: 15000,
+      stock: 200,
+      image: "https://i.imgur.com/3sK5WQr.jpg",
+    },
+    {
+      id: "9",
+      name: "Forfait Illimité Appels",
+      category: "numérique",
+      price: 20000,
+      stock: 500,
+      image: "https://i.imgur.com/7bNqFfT.jpg",
+    },
+    {
+      id: "10",
+      name: "Modem ADSL Celtiis",
+      category: "physique",
+      price: 29900,
+      stock: 7,
+      image: "https://i.imgur.com/vKz4YhJ.jpg",
+    },
+  ];
 
   const filteredProducts = products.filter(product => {
     const matchesSearch = product.name.toLowerCase().includes(searchTerm.toLowerCase());
@@ -84,7 +101,7 @@ export const CatalogueProduit = () => {
   return (
     <div className="p-6">
       <div className="flex flex-col md:flex-row md:justify-between md:items-center gap-4 mb-6">
-        <h1 className="text-2xl font-bold">Catalogue Produits</h1>
+        <h1 className="text-2xl font-bold">Catalogue Produits </h1>
         <div className="flex flex-col sm:flex-row gap-2">
           <input
             type="text"
@@ -112,7 +129,7 @@ export const CatalogueProduit = () => {
             <tr>
               <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Produit</th>
               <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Catégorie</th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Prix</th>
+              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Prix (FCFA)</th>
               <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Stock</th>
               <th className="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase">Actions</th>
             </tr>
@@ -139,10 +156,12 @@ export const CatalogueProduit = () => {
                     {product.category}
                   </span>
                 </td>
-                <td className="px-6 py-4 whitespace-nowrap">{product.price.toFixed(2)} €</td>
+                <td className="px-6 py-4 whitespace-nowrap">
+                  {product.price > 0 ? product.price.toLocaleString() + ' FCFA' : 'Gratuit'}
+                </td>
                 <td className="px-6 py-4 whitespace-nowrap">
                   {product.stock > 0 ? (
-                    <span className="text-green-600">{product.stock} en stock</span>
+                    <span className="text-green-600">Disponible</span>
                   ) : (
                     <span className="text-red-600">Rupture</span>
                   )}
