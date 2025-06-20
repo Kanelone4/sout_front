@@ -13,7 +13,9 @@ import {
   LogOut,
   Calendar,
   FileText,
-  TrendingUp
+  TrendingUp,
+  BriefcaseBusiness,
+  SendIcon
 } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 
@@ -93,9 +95,8 @@ const Sidebar = () => {
               <div>
                 <button
                   onClick={toggleCommercialMenu}
-                  className={`flex items-center justify-between w-full px-3 py-2.5 text-sm font-medium rounded-lg transition-colors ${
-                    isActive("/commerciaux") ? "bg-blue-50 text-blue-700" : "text-gray-700 hover:bg-gray-100"
-                  }`}
+                  className={`flex items-center justify-between w-full px-3 py-2.5 text-sm font-medium rounded-lg transition-colors ${isActive("/commerciaux") ? "bg-blue-50 text-blue-700" : "text-gray-700 hover:bg-gray-100"
+                    }`}
                 >
                   <div className="flex items-center">
                     <span className={`mr-3 ${isActive("/commerciaux") ? "text-blue-600" : "text-gray-400"}`}>
@@ -144,17 +145,33 @@ const Sidebar = () => {
               <SidebarLink
                 icon={<Calendar className="w-5 h-5" />}
                 to="/activities"
-                active={isActive("/activites")}
+                active={isActive("/activities")}
               >
-                Activités
+                Gestion des Ventes
               </SidebarLink>
 
-               <SidebarLink
+              <SidebarLink
+                icon={<SendIcon className="w-5 h-5" />}
+                to="/transfer"
+                active={isActive("/transfer")}
+              >
+                Transfert de stock
+              </SidebarLink>
+
+              <SidebarLink
                 icon={<Package className="w-5 h-5" />}
                 to="/stocks"
                 active={isActive("/stocks")}
               >
                 Stocks
+              </SidebarLink>
+
+              <SidebarLink
+                icon={<BriefcaseBusiness className="w-5 h-5" />}
+                to="/pos-management"
+                active={isActive("/pos-management")}
+              >
+                POS Management
               </SidebarLink>
 
               <SidebarLink
@@ -213,9 +230,8 @@ const SidebarLink = ({
 }) => (
   <Link
     to={to}
-    className={`flex items-center px-3 py-2.5 text-sm font-medium rounded-lg transition-colors ${
-      active ? "bg-blue-50 text-blue-700" : "text-gray-700 hover:bg-gray-100"
-    }`}
+    className={`flex items-center px-3 py-2.5 text-sm font-medium rounded-lg transition-colors ${active ? "bg-blue-50 text-blue-700" : "text-gray-700 hover:bg-gray-100"
+      }`}
   >
     <span className={`mr-3 ${active ? "text-blue-600" : "text-gray-400"}`}>
       {icon}
