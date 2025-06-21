@@ -144,7 +144,7 @@ const Sidebar = () => {
               <SidebarLink
                 icon={<Calendar className="w-5 h-5" />}
                 to="/activities"
-                active={isActive("/activites")}
+                active={isActive("/activities")}
               >
                 Activités
               </SidebarLink>
@@ -160,7 +160,7 @@ const Sidebar = () => {
               <SidebarLink
                 icon={<FileText className="w-5 h-5" />}
                 to="/reports"
-                active={isActive("/rapports")}
+                active={isActive("/reports")}
               >
                 Rapports
               </SidebarLink>
@@ -172,6 +172,7 @@ const Sidebar = () => {
               >
                 Paramètres
               </SidebarLink>
+
             </nav>
           </div>
 

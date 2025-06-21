@@ -167,7 +167,7 @@ export const Stock = () => {
                             className="bg-blue-600 hover:bg-blue-700 disabled:bg-gray-300 disabled:cursor-not-allowed text-white px-4 py-2 rounded-lg text-sm font-medium flex items-center gap-2 transition-colors"
                           >
                             <PlusCircle className="h-4 w-4" />
-                            Réapprovisionnement
+                            Réappro
                           </button>
                         </div>
                       </div>

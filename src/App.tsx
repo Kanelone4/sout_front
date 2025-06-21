@@ -6,6 +6,7 @@ import OperationsCommerciales from '../src/pages/commerciaux/operationsCommercia
 import Rapports from '../src/pages/Rapports'
 import Activites from '../src/pages/Activites'
 import Stock from '../src/pages/Stock'
+import Performances from '../src/pages/performances';
 import Settings from './pages/Settings';
 import NotFound from '../src/pages/NotFoud';
 import Login from './pages/Login';
@@ -26,7 +27,11 @@ function App() {
            <Route path="/commerciaux/catalogue" element={<CatalogueProduit />} />
            <Route path="/commerciaux/operations" element={<OperationsCommerciales />} />
           <Route path="/stocks" element={<Stock />} />
+          <Route path="/performance" element={<Performances />} />
+
+         
           <Route path="*" element={<NotFound />} />
+          
         </Routes>
     </Router>
   );

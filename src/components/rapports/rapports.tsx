@@ -230,7 +230,7 @@ export const Rapports = () => {
                       <div className="bg-gray-50 rounded-lg p-4">
                         <div className="flex items-center gap-2 mb-2">
                           <DollarSign className="h-4 w-4 text-blue-600" />
-                          <span className="text-xs text-gray-600 font-medium">Chiffre d'affaires</span>
+                          <span className="text-xs text-gray-600 font-medium">Montant produit</span>
                         </div>
                         <div className="text-xl font-bold text-gray-900">
                           {Number.parseFloat(rapport.chiffreAffaires).toLocaleString()}

@@ -101,7 +101,7 @@ export const Activites = () => {
         <div className="max-w-6xl mx-auto px-6 py-4">
           <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
             <div>
-              <h1 className="text-2xl font-bold text-gray-900">Journal des Ventes</h1>
+              <h1 className="text-2xl font-bold text-gray-900">Historique des Ventes</h1>
               <p className="text-sm text-gray-600">
                 {totalVentes} transactions • {totalCA.toLocaleString()} FCFA
               </p>
@@ -136,7 +136,7 @@ export const Activites = () => {
               <Package className="h-12 w-12 text-gray-400" />
             </div>
             <h3 className="text-xl font-semibold text-gray-900 mb-2">Aucune vente trouvée</h3>
-            <p className="text-gray-600">Commencez par enregistrer votre première vente</p>
+            <p className="text-gray-600">Commencez par enregistrer une vente</p>
           </div>
         ) : (
           <div className="space-y-8">
