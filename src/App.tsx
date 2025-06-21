@@ -10,6 +10,8 @@ import Settings from './pages/Settings';
 import NotFound from '../src/pages/NotFoud';
 import Login from './pages/Login';
 import Register from './pages/Register';
+import { POSManagement } from './pages/POSManagement';
+import { TransferManagement } from './pages/TransferManagement';
 
 
 function App() {
@@ -22,9 +24,11 @@ function App() {
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/settings" element={<Settings />} />
           <Route path="/activities" element={<Activites />} />
+          <Route path="/transfer" element={<TransferManagement  />} />
           <Route path="/reports" element={<Rapports />} />
            <Route path="/commerciaux/catalogue" element={<CatalogueProduit />} />
            <Route path="/commerciaux/operations" element={<OperationsCommerciales />} />
+           <Route path="/pos-management" element={< POSManagement />} />
           <Route path="/stocks" element={<Stock />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
